@@ -17,9 +17,13 @@ import{
  
 import HeaderIcon from './HeaderIcon';
 
+import {signOut , useSession} from "next-auth/react"
+
 
 
 function Header() {
+  const {data: session, status } = useSession();
+
   return (
     <div className='flex min-w-full	 sticky top-0 z-50 bg-white items-center  p-2 lg:px-5 shadow-md '>
 
@@ -54,6 +58,8 @@ function Header() {
 {/* right */}
 <div className='flex items-center sm:space-x-2 justify-end'>
   {/* profilepic */}
+
+  <Image src={session.user.image} onClick={signOut} className="rounded-full cursor-pointer " width={40} height={40}  />
 
   <p className='font-semibold pr-3 whitespace-nowrap'>Tushar gupta</p>
   <ViewGridIcon className='icon'/>

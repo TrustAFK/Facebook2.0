@@ -1,5 +1,6 @@
 import react from "react";
 import Image from "next/image"
+import {signIn} from "next-auth/react"
 function Login() {
   return (
     <div className="grid place-items-center">
@@ -11,7 +12,7 @@ width={400}
 objectFit="contain"
 />
 
-<h1 className="p-5 bg-blue-500 rounded-full texe-center text-white cursor-pointer ">Login With Facebook</h1>
+<h1 onClick={signIn} className="p-5 bg-blue-500 rounded-full texe-center text-white cursor-pointer ">Login With Facebook </h1>
 
 
     </div>
